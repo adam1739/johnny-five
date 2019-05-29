@@ -1,0 +1,21 @@
+var moment = require("moment");
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+    var today=new Date();
+    var h=today.getHours();
+    
+console.log(day());
+    console.log(month());
+  
+   /* setInterval(function() {
+        console.log(time());
+    }, 1000);*/
+});
+
+function time() {
+      return moment().format("hh.mm.ss");
+}
+
+
