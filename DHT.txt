@@ -1,0 +1,18 @@
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+    var multi = new five.Multi({
+        controller:"DHT11_I2C_NANO_BACKPACK"
+    });
+
+    multi.on("change", function() {
+        console.log("Hõmérséklet");
+        console.log("  Hõmérséklet           : ", this.thermometer.celsius);
+       
+
+        console.log("Páratartalom");
+        console.log("  Páratartalom : ", this.hygrometer.relativeHumidity);
+    });
+   
+});
